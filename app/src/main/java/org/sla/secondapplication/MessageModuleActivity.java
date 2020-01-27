@@ -26,15 +26,18 @@ import org.sla.secondapplication.model.ModuleManager;
 import java.util.ArrayList;
 
 public class MessageModuleActivity extends AppCompatActivity {
-    private RecyclerView mMessageRecycler;
-    private MessageListAdapter mMessageAdapter;
-    private LinearLayoutManager myLayoutManager;
+    public RecyclerView mMessageRecycler;
+    public MessageListAdapter mMessageAdapter;
+    public LinearLayoutManager myLayoutManager;
 
     private MessageModule messageModule;
+
+    private static MessageModuleActivity instance;
 
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
+        instance = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_module);
 
@@ -77,5 +80,31 @@ public class MessageModuleActivity extends AppCompatActivity {
         System.out.println(messageModule.getMessages());
     }
 
+    public static MessageModuleActivity getInstance(){
+        return instance;
+    }
 
+    public RecyclerView getmMessageRecycler() {
+        return mMessageRecycler;
+    }
+
+    public void setmMessageRecycler(RecyclerView mMessageRecycler) {
+        this.mMessageRecycler = mMessageRecycler;
+    }
+
+    public MessageListAdapter getmMessageAdapter() {
+        return mMessageAdapter;
+    }
+
+    public void setmMessageAdapter(MessageListAdapter mMessageAdapter) {
+        this.mMessageAdapter = mMessageAdapter;
+    }
+
+    public LinearLayoutManager getMyLayoutManager() {
+        return myLayoutManager;
+    }
+
+    public void setMyLayoutManager(LinearLayoutManager myLayoutManager) {
+        this.myLayoutManager = myLayoutManager;
+    }
 }

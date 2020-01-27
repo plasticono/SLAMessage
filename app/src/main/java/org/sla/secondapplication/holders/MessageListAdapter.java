@@ -16,6 +16,7 @@ import com.sendbird.android.SendBird;
 import com.sendbird.android.UserMessage;
 
 import org.sla.secondapplication.R;
+import org.sla.secondapplication.Utils;
 
 import java.util.List;
 
@@ -106,8 +107,8 @@ public class MessageListAdapter extends RecyclerView.Adapter {
             messageText.setText(message.getMessage());
 
             // Format the stored timestamp into a readable String using method.
-            //timeText.setText(Utils.formatDateTime(message.getCreatedAt()));
-            timeText.setText("time");
+            timeText.setText(Utils.formatDateTime(message.getCreatedAt()));
+
         }
     }
 
@@ -128,13 +129,12 @@ public class MessageListAdapter extends RecyclerView.Adapter {
             messageText.setText(message.getMessage());
 
             // Format the stored timestamp into a readable String using method.
-            //timeText.setText(Utils.formatDateTime(message.getCreatedAt()));
-            timeText.setText("time");
+            timeText.setText(Utils.formatDateTime(message.getCreatedAt()));
 
             nameText.setText(message.getSender().getNickname());
 
             // Insert the profile image from the URL into the ImageView.
-            //Utils.displayRoundImageFromUrl(mContext, message.getSender().getProfileUrl(), profileImage);
+            Utils.displayRoundImageFromUrl(mContext, message.getSender().getProfileUrl(), profileImage);
         }
     }
 }

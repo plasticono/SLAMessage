@@ -1,6 +1,7 @@
 package org.sla.secondapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -110,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 if (message instanceof UserMessage) {
                     if (channel.getUrl().equalsIgnoreCase(messageChannel.getUrl())) {
                         moduleManager.modules.get(0).getMessages().add(message);
+                        MessageModuleActivity.getInstance().getmMessageAdapter().notifyDataSetChanged();
                     }
                 } else if (message instanceof FileMessage) {
 
